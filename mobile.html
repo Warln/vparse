@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Vparse｜暗影VIP视频解析</title>
+  <link rel="stylesheet" href="./uikit/css/uikit.css">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+  <header>
+    <nav class="navbar" navbar>
+      <div class="navbar-left">
+        <a href="/" class="navbar-item logo">Vparse</a>
+      </div>
+      <div class="navbar-right">
+        <ul class="navbar-nav">
+          <li><a href="#">暗影优惠</a></li>
+          <li><a href="#">暗影导航</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <main id="app">
+    <section class="section section-primary">
+      <div class="container text-center">
+        <h1 class="h2">Vparse VIP视频解析</h1>
+        <p class="text-small">本站资源均由互联网抓取到，仅供学习交流</p>
+        <p class="text-small">目前支持以下视频网站</p>
+        <div>
+          <form>
+            <div class="margin">
+              <input class="input" style="border: none; border-radius: 2px;" type="url" placeholder="输入视频地址，如：http://v.qq.com/x/cover/945g2u0ctnfx7u4.html">
+            </div>
+            <div class="margin">
+              <a type="button" class="button button-default" style="border-radius: 24px;" href="#target" @click="vplay" scroll>立即播放</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+    <section class="section section-muted" id="target">
+      <p class="text-center">这里是广告</p>
+    </section>
+    <section class="section section-secondary">
+      <div class="container text-center">
+        <form>
+          <div class="margin">
+            <div class="inline" style="width: 100%;">
+              <a class="form-icon form-icon-flip" style="border: none; background-color: transparent;">播放</a>
+              <input class="input" style="border: none; border-radius: 2px;" v-model="vurl" type="url" placeholder="输入视频地址">
+            </div>
+          </div>
+          <div class="margin">
+            <div class="inline" style="width: 100%;">
+              <a class="form-icon form-icon-flip" style="border: none; background-color: transparent;">切换</a>
+              <select class="select" style="border: none; border-radius: 2px;" v-model="vroute" placeholder="选择解析引擎">
+                <option value="" style="color: #777;">选择解析引擎</option>
+                <optgroup v-for="rtg in vroutes" :label="rtg.group" style="color: #777;">
+                  <option v-for="rt in rtg.routes" :value="rt.value" style="color: #000;">{{rt.label ? rt.label : rt.value}}</option>
+                </optgroup>
+              </select>
+            </div>
+          </div>
+          <div class="margin">
+            <div class="inline" style="width: 100%;">
+              <p>{{vpurl}}</p>
+            </div>
+          </div>
+        </form>
+        <div class="margin">
+          <iframe :src="vpurl" width="100%" height="265px" allowtransparency="true" frameborder="0" scrolling="no">
+            <p>如果你看到这句话，很抱歉，你的浏览器可能不受支持，推荐使用Chrome浏览器！</p>
+          </iframe>
+        </div>
+        <div class="margin">
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <section class="section section-muted">
+      <p class="text-center">底部信息（未展示）</p>
+    </section>
+  </footer>
+  <script src="./js/vue.js"></script>
+  <script src="./uikit/js/uikit.js"></script>
+  <script src="./uikit/js/uikit-icons.js"></script>
+  <script src="./js/app.js"></script>
+</body>
+
+</html>
